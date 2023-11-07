@@ -31,7 +31,7 @@ namespace ProjektHundekennel
 		DateTime dateAdded;
 		int ailments;//skal henføre til ailmentId?
 
-		public CreateDog(int dogId, string pedigreeId, string father, string mother, string birthDate)
+		public CreateDog(int dogId, string pedigreeId, string father, string mother, DateTime birthDate)
 		{
 			this.dogId = dogId;
 			this.pedigreeId = pedigreeId;
