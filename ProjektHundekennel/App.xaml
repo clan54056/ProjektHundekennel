@@ -4,6 +4,109 @@
              xmlns:local="clr-namespace:ProjektHundekennel"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <SolidColorBrush x:Key="BorderPrimary" Color="#1c1c1c"/>
+
+            <Style TargetType="Button">
+                <Setter Property="Foreground" Value="Black"/>
+                <Setter Property="Background" Value=" #9ee596 "/>
+
+                <Setter Property="Padding" Value="8 8"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border 
+                                CornerRadius="3" 
+
+                                Background="{TemplateBinding Background}" 
+                                Padding="{TemplateBinding Padding}">
+                                <ContentPresenter />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+
+                <!--Changes color on button on hover-->
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Trigger.EnterActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation 
+                                        Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                        To="#2dba1e" 
+                                        Duration="0:0:0.1"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </Trigger.EnterActions>
+
+                        <!--Changes color on button back to original color after unhover-->
+                        <Trigger.ExitActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation 
+                                        Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                        To="#9ee596" 
+                                        Duration="0:0:0.1"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </Trigger.ExitActions>
+                    </Trigger>
+
+                    <Trigger Property="IsEnabled" Value="False">
+                        <Setter Property="Opacity" Value="0.3"/>
+                    </Trigger>
+                </Style.Triggers>
+
+            </Style>
+
+            <Style 
+                x:Key="ButtonSecondary" 
+                TargetType="Button" 
+                BasedOn="{StaticResource {x:Type Button}}">
+                <Setter Property="Foreground" Value="Black"/>
+                <Setter Property="Background" Value=" #fcaaac "/>
+
+
+                <!--Changes color on button on hover-->
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Trigger.EnterActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation 
+                                        Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                        To="#2dba1e" 
+                                        Duration="0:0:0.1"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </Trigger.EnterActions>
+
+                        <!--Changes color on button back to original color after unhover-->
+                        <Trigger.ExitActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation 
+                                        Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                        To="#fcaaac" 
+                                        Duration="0:0:0.1"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </Trigger.ExitActions>
+                    </Trigger>
+                </Style.Triggers>
+
+            </Style>
+
+            <Style 
+                x:Key="ButtonClearTextbox" 
+                TargetType="Button">
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
