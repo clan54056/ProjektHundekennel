@@ -3,13 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ProjektHundekennel"
+        xmlns:local="clr-namespace:ProjektHundekennel" xmlns:views="clr-namespace:ProjektHundekennel.Views"
+        xmlns:usercontrols="clr-namespace:ProjektHundekennel.Views.UserControls"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        <!-- AllowsTransparency="True" -->
+        <!-- WindowStyle="None" -->
+    <!-- test-->
         
-            <TextBlock>"This is a block of text"</TextBlock>
-       
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <Grid Margin="20 10" Background=" #f4f4f4 ">
 
-    </Grid>
+            <views:FrontPageView/>
+
+
+        </Grid>
+    </ScrollViewer>
 </Window>
