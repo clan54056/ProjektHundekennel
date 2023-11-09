@@ -29,19 +29,21 @@ namespace ProjektHundekennel.Models
         string aK { get; set; }
         bool breedingStatus { get; set; }
         bool mentalDescribed { get; set; }
-        Image image;
+        //Image image;
 
 
         int ailments;//skal henføre til ailmentId?
 
-        public CreateDog(int dogId, string pedigreeId, string name, string father, string mother, DateTime birthDate)
-        {
-            this.dogId = dogId;
-            this.pedigreeId = pedigreeId;
-            this.father = father;
-            this.mother = mother;
-            this.birthDate = birthDate;
-        }
+        // Udkommenteret af Casper da den mangler retur type
+
+        //public CreateDog(int dogId, string pedigreeId, string name, string father, string mother, DateTime birthDate)
+        //{
+        //    this.dogId = dogId;
+        //    this.pedigreeId = pedigreeId;
+        //    this.father = father;
+        //    this.mother = mother;
+        //    this.birthDate = birthDate;
+        //}
 
         //public void ViewDog()
         //{
