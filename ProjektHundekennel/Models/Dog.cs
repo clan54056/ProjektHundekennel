@@ -9,7 +9,7 @@ namespace ProjektHundekennel.Models
 {
     public class Dog
     {
-        int dogId; //primary key
+        int dogId; //primary key //hey
 
         string pedigreeId { get; set; }
         string tato { get; set; }
