@@ -36,6 +36,8 @@ namespace ProjektHundekennel.Models
 
         // Udkommenteret af Casper da den mangler retur type
 
+        // test GitHub
+
         //public CreateDog(int dogId, string pedigreeId, string name, string father, string mother, DateTime birthDate)
         //{
         //    this.dogId = dogId;
