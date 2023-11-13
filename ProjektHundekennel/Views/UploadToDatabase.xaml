@@ -16,7 +16,7 @@
             Margin="243,99,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Click="Button_Click"
+            Click="HandleUploadToDatabase"
             Content="Vælg excel fil" />
         <Label
             Margin="90,101,0,0"
