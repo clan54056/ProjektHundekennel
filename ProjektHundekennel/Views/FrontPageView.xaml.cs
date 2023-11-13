@@ -81,6 +81,12 @@ namespace ProjektHundekennel.Views
                 datagrid.ItemsSource = dt.DefaultView;
 
         }
-    }
+
+		private void UploadToDatabaseBtn_Click(object sender, RoutedEventArgs e)
+		{
+			UploadToDatabase uploader = new UploadToDatabase();
+			uploader.HandleUploadToDatabase(sender, e);
+		}
+	}
         
 }
