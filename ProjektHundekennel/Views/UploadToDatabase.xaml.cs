@@ -21,7 +21,8 @@ namespace ProjektHundekennel.Views
 	{
 		public void HandleUploadToDatabase(object sender, RoutedEventArgs e)
 		{
-			// logik til at uploade en excel fil
+			InitializeComponent(); //ved ikke om det her skal stå her?
+			//kode til at vælge en excel fil og læse den ind i databasen
 		}
 	}
 }
