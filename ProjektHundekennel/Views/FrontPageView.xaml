@@ -44,8 +44,9 @@
                 <Button 
                         Name="UploadToDatabaseBtn" 
                         FontSize="16"
-                        Content="Upload til database" />
-                <!-- Click="SaveBtn_Click" -->
+                        Content="Upload til database" 
+                    Click="UploadToDatabaseBtn_Click" />
+              
             </Border>
 
             <Border 

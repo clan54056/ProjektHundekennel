@@ -6,45 +6,111 @@ using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using System.Data;
 using Microsoft.Extensions.Configuration.Json;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.FileSystemGlobbing;
 
 namespace ProjektHundekennel.Models
 {
     public class Dog
     {
-        int dogId; //primary key //hey //en ny kommentar
 
-        public string pedigreeId { get; set; }
-        public string tato { get; set; }
-        public string name { get; set; }
-        public string breeder { get; set; }
+        List<Dog> dogs = new List<Dog>();
 
-        public string father; //henfører til pedigreeId
+        public int DogId { get; set; }
+
+        public string PedigreeId { get; set; }
+        public string? Tato { get; set; }
+        public string? Name { get; set; }
+        public string? Breeder { get; set; }
+
+        public string father; //henfører til pedigreeId ??
         public string mother;
 
-        public string dkkTitles { get; set; }
-        public string titles { get; set; }
+        public string? DkkTitles { get; set; }
+        public string? Titles { get; set; }
 
-        public int count { get; set; }
-        public DateTime birthDate { get; set; }
-        public char sex { get; set; }
-        public string colour { get; set; }
-        public bool dead { get; set; }
-        public string aK { get; set; }
-        public bool breedingStatus { get; set; }
-        public bool mentalDescribed { get; set; }
-        //Image image;
+        public int? Count { get; set; }
+        public DateTime? Born { get; set; }
+        public char? Sex { get; set; }
+        public string? Colour { get; set; }
+        public bool? Dead { get; set; }
+        public string? AK { get; set; }
+        public bool? BreedingStatus { get; set; }
+        public bool? MentalDescribed { get; set; }
+
+        public byte? Image { get; set; }
 
 
         int ailments;//skal henføre til ailmentId?
 
-        public void CreateDog(int dogId, string pedigreeId, string name, string father, string mother, DateTime birthDate)
+        public void CreateDog(Dog dogToBeCreated)
         {
-            this.dogId = dogId;
-            this.pedigreeId = pedigreeId;
-            this.father = father;
-            this.mother = mother;
-            this.birthDate = birthDate;
-        }
+			IConfigurationRoot config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+
+			string? ConnectionString = config.GetConnectionString("MyDBConnection");
+
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("INSERT INTO Dog (PedigreeId, Tato, Name, Breeder, Father, Mother, DKKTitles, Titles, Count, Born, Sex, Colour, Dead, AK, BreedingStatus, MentalDescribed, Image)" +
+
+                    "VALUES(@PedigreeId, @Tato, @Name, @Breeder, @Father, @Mother, @DKKTitles, @Titles, @Count, @Born, @Sex, @Colour, @Dead, @AK, @BreedingStatus, @MentalDescribed, @Image)" +
+                    "SELECT @@IDENTITY", con);
+
+                cmd.Parameters.Add("@PedigreeId", SqlDbType.NVarChar).Value = dogToBeCreated.PedigreeId;
+
+
+
+				cmd.Parameters.Add("@Tato", SqlDbType.NVarChar).Value = dogToBeCreated.Tato;
+
+
+				cmd.Parameters.Add("@Name", SqlDbType.NVarChar).Value = dogToBeCreated.Name;
+
+
+				cmd.Parameters.Add("@Breeder", SqlDbType.NVarChar).Value = dogToBeCreated.Breeder;
+
+
+					cmd.Parameters.Add("@Father", SqlDbType.NVarChar).Value = dogToBeCreated.father;
+
+
+					cmd.Parameters.Add("@Mother", SqlDbType.NVarChar).Value = dogToBeCreated.mother;
+
+
+					cmd.Parameters.Add("@DKKTitles", SqlDbType.NVarChar).Value = dogToBeCreated.DkkTitles;
+
+
+					cmd.Parameters.Add("@Titles", SqlDbType.NVarChar).Value = dogToBeCreated.Titles; 
+
+
+					cmd.Parameters.Add("@Count", SqlDbType.Int).Value = dogToBeCreated.Count;
+
+
+					cmd.Parameters.Add("@Born", SqlDbType.DateTime2).Value = dogToBeCreated.Born;
+
+
+					cmd.Parameters.Add("@Sex", SqlDbType.Char).Value = dogToBeCreated.Sex;
+
+
+					cmd.Parameters.Add("@Colour", SqlDbType.NVarChar).Value = dogToBeCreated.Colour;
+
+
+					cmd.Parameters.Add("@Dead", SqlDbType.Bit).Value = dogToBeCreated.Dead;
+
+
+					cmd.Parameters.Add("@AK", SqlDbType.NVarChar).Value = dogToBeCreated.AK;
+
+
+					cmd.Parameters.Add("@BreedingStatus", SqlDbType.Bit).Value = dogToBeCreated.BreedingStatus;
+
+
+					cmd.Parameters.Add("@MentalDescribed", SqlDbType.Bit).Value = dogToBeCreated.MentalDescribed;
+
+
+					cmd.Parameters.Add("@Image", SqlDbType.VarBinary).Value = dogToBeCreated.Image;
+
+			}
+
+		}
 
         public void ViewDog()
         {
