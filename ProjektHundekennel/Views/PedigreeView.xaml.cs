@@ -16,7 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ProjektHundekennel.Views.UserControls
+namespace ProjektHundekennel.Views
 {
     /// <summary>
     /// Lógica de interacción para PedigreeView.xaml
