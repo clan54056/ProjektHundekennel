@@ -5,8 +5,114 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProjektHundekennel.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="450" d:DesignWidth="800"
+              DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    
+    <Grid HorizontalAlignment="Center">
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+
+
+        <!-- Dog 1 Information -->
+        <StackPanel Grid.Column="0" Margin="10,10,10,45" Width="200">
+            <StackPanel>
+                <TextBlock Text="Pedigree ID:"/>
+                <TextBox x:Name="pedigreeId1TextBox" Width="120"/>
+
+            </StackPanel>
+
+            <!-- Add other controls for Dog 1 if needed -->
+
+            <ListBox x:Name="breedingScenarioListBox1" ItemsSource="{Binding breedingScenarioDog1}" Visibility="Visible" Height="350" Margin=" 5">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Grid.Column="0" Margin="10" Width="200" >
+                            <TextBlock>
+                                    <Run Text="Pedigree ID: "/><Run Text="{Binding pedigree_id1}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                    <Run Text="Dog Name: "/><Run Text="{Binding dog_name1}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                    <Run Text="Color: "/><Run Text="{Binding colour1}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                <Run Text="Mother ID: "/><Run Text="{Binding mother_id1}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                    <Run Text="Mother Name: "/><Run Text="{Binding mother_name1}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                    <Run Text="Mother Color: "/><Run Text="{Binding mother_colour}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                    <Run Text="Father ID: "/><Run Text="{Binding father_id1}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                    <Run Text="Father Name: "/><Run Text="{Binding father_name1}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                    <Run Text="Father Color: "/><Run Text="{Binding father_colour}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                    <Run Text="Grandmother M ID: "/><Run Text="{Binding grandmother_m_id1}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                    <Run Text="Grandmother M Name: "/><Run Text="{Binding grandmother_m_name1}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                    <Run Text="Grandmother M Color: "/><Run Text="{Binding grandmother_m_colour}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                    <Run Text="Grandfather M ID: "/><Run Text="{Binding grandfather_m_id1}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                    <Run Text="Grandfather M Name: "/><Run Text="{Binding grandfather_m_name1}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                    <Run Text="Grandfather M Color: "/><Run Text="{Binding grandfather_m_colour}"/>
+                            </TextBlock>
+
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+
+        <!-- Dog 2 Information -->
+        <StackPanel Grid.Column="1" Margin="10,10,10,45" Width="200">
+            <StackPanel>
+                <TextBlock Text="Pedigree ID:"/>
+                <TextBox x:Name="pedigreeId2TextBox" Width="120"/>
+            </StackPanel>
+
+            <!-- Add other controls for Dog 2 if needed -->
+
+            <ListBox x:Name="breedingScenarioListBox2" ItemsSource="{Binding breedingScenarioDog2}" Height="350" Margin="5">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock>
+                                    <Run Text="Pedigree ID: "/><Run Text="{Binding pedigree_id2}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                    <Run Text="Dog Name: "/><Run Text="{Binding dog_name2}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                    <Run Text="Color: "/><Run Text="{Binding colour2}"/>
+                            </TextBlock>
+                            <!-- Add other properties for Dog 2 if needed -->
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+
+
+        <Button Content="Hent AvlsScenarie" Click="Button_Click" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="163,408,0,0" VerticalAlignment="Top"/>
     </Grid>
 </UserControl>
