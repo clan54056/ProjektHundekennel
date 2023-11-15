@@ -26,6 +26,7 @@ namespace ProjektHundekennel.Views
 		}
 		public void HandleUploadToDatabase(object sender, RoutedEventArgs e)
 		{
+
             OpenFileDialog dlg = new OpenFileDialog();
             bool? response = dlg.ShowDialog();
 
@@ -36,5 +37,8 @@ namespace ProjektHundekennel.Views
             }
             MessageBox.Show("Success!\n\nFile uploaded.");
         }
+//open dialog=======
+
+		}
 	}
 }
