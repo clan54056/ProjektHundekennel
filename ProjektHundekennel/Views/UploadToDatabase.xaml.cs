@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using System.Windows.Navigation;
 namespace ProjektHundekennel.Views
 {
 	/// <summary>
@@ -19,9 +20,21 @@ namespace ProjektHundekennel.Views
 	/// </summary>
 	public partial class UploadToDatabase : Window
 	{
+		public UploadToDatabase() { 
+		
+			InitializeComponent();
+		}
 		public void HandleUploadToDatabase(object sender, RoutedEventArgs e)
 		{
-			// logik til at uploade en excel fil
-		}
+            OpenFileDialog dlg = new OpenFileDialog();
+            bool? response = dlg.ShowDialog();
+
+            if (response == true)
+            {
+                string filepath = dlg.FileName;
+                destination.Items.Add(filepath);
+            }
+            MessageBox.Show("Success!\n\nFile uploaded.");
+        }
 	}
 }

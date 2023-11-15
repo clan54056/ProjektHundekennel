@@ -7,6 +7,10 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Navigation;
+using ProjektHundekennel.Views;
+using System.Linq;
+
 
 namespace ProjektHundekennel.Views
 {
@@ -87,6 +91,12 @@ namespace ProjektHundekennel.Views
 			UploadToDatabase uploader = new UploadToDatabase();
 			uploader.HandleUploadToDatabase(sender, e);
 		}
-	}
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PedigreeView());
+
+        }
+    }
         
 }

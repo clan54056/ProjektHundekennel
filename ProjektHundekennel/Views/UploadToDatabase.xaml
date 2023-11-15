@@ -23,6 +23,6 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Content="Indlæs data fra excel fil" />
-
+        <ListBox x:Name="destination" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,33,255,0" BorderThickness="0" Height="NaN" Width="NaN" FontFamily="Bahnschrift" FontSize="20"/>
     </Grid>
 </Window>

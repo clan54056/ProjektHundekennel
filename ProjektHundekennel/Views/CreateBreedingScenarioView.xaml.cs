@@ -26,25 +26,44 @@ namespace ProjektHundekennel.Views
     /// </summary>
     public partial class CreateBreedingScenarioView : UserControl, INotifyPropertyChanged
     {
-    
+        private ObservableCollection<ProjektHundekennel.Models.CreateBreedingScenarioViewModel> breedingScenarioDog1;
+        private ObservableCollection<ProjektHundekennel.Models.CreateBreedingScenarioViewModel2> breedingScenarioDog2;
+
+        //public ObservableCollection<CreateBreedingScenarioViewModel> ResultCollection
+        //{
+        //    get { return _resultCollection; }
+        //    set
+        //    {
+        //        if (_resultCollection != value)
+        //        {
+        //            _resultCollection = value;
+        //            OnPropertyChanged(nameof(ResultCollection));
+        //        }
+        //    }
+        //}
+
 
         private string connectionString = "";
         public CreateBreedingScenarioView()
         {
             InitializeComponent();
 
+            DataContext = this;
+
             breedingScenarioDog1 = new ObservableCollection<CreateBreedingScenarioViewModel>();
-            breedingScenarioListBox1.DataContext = breedingScenarioDog1;
+            Datagrid1.DataContext = breedingScenarioDog1;
 
             breedingScenarioDog2 = new ObservableCollection<CreateBreedingScenarioViewModel2>();
-            breedingScenarioListBox2.DataContext = breedingScenarioDog2;
+            Datagrid2.DataContext = breedingScenarioDog2;
 
             IConfigurationRoot config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
             connectionString = config.GetConnectionString("MyDBConnection")!;
         }
 
-        private ObservableCollection<ProjektHundekennel.Models.CreateBreedingScenarioViewModel> breedingScenarioDog1;
-        private ObservableCollection<ProjektHundekennel.Models.CreateBreedingScenarioViewModel2> breedingScenarioDog2;
+     
+        
+        
+        
         private string _breedingScenarioDog1;
         private string _breedingScenarioDog2;
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -73,11 +92,11 @@ namespace ProjektHundekennel.Views
                 }
             }
         }
-       
 
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
+
+        protected virtual void OnPropertyChanged(string _resultCollection)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(_resultCollection));
         }
 
         private string _pedigreeId1;

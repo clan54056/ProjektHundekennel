@@ -15,7 +15,7 @@
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
         <Grid Margin="20 10" Background=" #f4f4f4 ">
 
-            <views:CreateBreedingScenarioView/>
+            <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden"/>
 
 
         </Grid>
