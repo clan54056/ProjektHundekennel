@@ -137,7 +137,7 @@
                     Margin="2 5 5 0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center">
-                    <Button>
+                    <Button Click="Button_Click">
                         <TextBlock TextWrapping="Wrap"  LineHeight="5" >
                                 <Run> Vis </Run>
                                 <LineBreak/>

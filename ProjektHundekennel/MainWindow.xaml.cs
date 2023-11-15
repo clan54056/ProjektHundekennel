@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using ProjektHundekennel.Views;
+using System.Windows;
 
 namespace ProjektHundekennel
 {
@@ -10,6 +11,7 @@ namespace ProjektHundekennel
         public MainWindow()
         {
             InitializeComponent();
+            mainFrame.NavigationService.Navigate(new FrontPageView());
         }
 
     }
